@@ -11,12 +11,12 @@ class CourseSection extends StatelessWidget {
     final List<CoursesModel> courses = CoursesModel.courses;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    // Define the number of columns based on the screen size
+    // number of columns based on the screen size
     int crossAxisCount = 1;
     if (screenWidth >= 1024) {
-      crossAxisCount = 3; // Desktop: 3 columns
+      crossAxisCount = 4; // Desktop
     } else if (screenWidth >= 600) {
-      crossAxisCount = 2; // Tablet: 2 columns
+      crossAxisCount = 2; // Tablet
     }
 
     return Center(
@@ -32,7 +32,7 @@ class CourseSection extends StatelessWidget {
           ),
           itemBuilder: (context, index) {
             return Center(
-              child: CourseCard(course: courses[index]), // Center the cards
+              child: CourseTile(course: courses[index]), // Center the cards
             );
           },
         ),

@@ -31,7 +31,7 @@ class ReviewWidget extends StatelessWidget {
             color: color,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Text(
           rating.title ?? "",
           maxLines: 1,
@@ -42,7 +42,7 @@ class ReviewWidget extends StatelessWidget {
             color: Colors.black87,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Text(
           rating.review ?? "",
           maxLines: 2,
@@ -53,7 +53,7 @@ class ReviewWidget extends StatelessWidget {
             color: Colors.black54,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Text(
           rating.reviewerName ?? "",
           maxLines: 1,

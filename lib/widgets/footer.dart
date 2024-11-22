@@ -33,7 +33,11 @@ class WebFooter extends StatelessWidget {
                 "alifquranacademy@gmail.com",
                 style: TextStyle(color: Colors.grey.shade300),
               ),
-              const Spacer(),
+              // Image.asset(
+              //   "assets/images/hadees2.png",
+              //   height: 200,
+              //   width: 700,
+              // ),
               FlutterSocialButton(
                 onTap: () {
                   html.window.open("https://instagram.com", "newtab");

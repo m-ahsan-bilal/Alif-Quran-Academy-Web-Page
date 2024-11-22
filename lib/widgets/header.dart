@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social_button/flutter_social_button.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: avoid_web_libraries_in_flutter
@@ -12,10 +12,11 @@ class WebHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.green.shade700,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -31,7 +32,7 @@ class WebHeader extends StatelessWidget {
           Text(
             "Alif Quran Academy",
             style: GoogleFonts.amiri(
-              fontSize: 28,
+              fontSize: 26,
               color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
@@ -40,7 +41,7 @@ class WebHeader extends StatelessWidget {
           Row(
             children: [
               Text(
-                "Got a query? ",
+                "Got a query?? ",
                 style: GoogleFonts.amiri(
                   fontSize: 22,
                   color: Colors.black,
@@ -56,14 +57,10 @@ class WebHeader extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 ),
-                child: Row(
+                child: const Row(
                   children: [
-                    // // FlutterSocialButton(
-                    // //   buttonType: ButtonType.whatsapp,
-                    // //   onTap: () {},
-                    // ),
-                    const SizedBox(width: 8),
-                    const Text(
+                    SizedBox(width: 8),
+                    Text(
                       "Contact Now!!",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
