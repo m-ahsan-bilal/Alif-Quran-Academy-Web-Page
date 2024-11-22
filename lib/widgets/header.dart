@@ -43,7 +43,7 @@ class WebHeader extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Got a query? ",
+                      "Have a query? ",
                       style: GoogleFonts.amiri(
                         fontSize: 16,
                         color: Colors.black,
@@ -53,7 +53,7 @@ class WebHeader extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         html.window
-                            .open("https://wa.me/923706269220", "newtab");
+                            .open(r"https://wa.me/923706269220", "newtab");
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green.shade900,
@@ -86,7 +86,7 @@ class WebHeader extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "Got a query? ",
+                      "Have a query? ",
                       style: GoogleFonts.amiri(
                         fontSize: 18,
                         color: Colors.black,

@@ -64,32 +64,6 @@ class ContactSection extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.location_on, color: Colors.green.shade700, size: 32),
-                const SizedBox(width: 10),
-                Text(
-                  "Lahore, Pakistan",
-                  style: GoogleFonts.roboto(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.green.shade700,
-                  ),
-                ),
-              ],
-            ),
-            // const SizedBox(height: 30),
-            // Text(
-            //   "Leave us a Message",
-            //   style: GoogleFonts.amiri(
-            //     fontSize: 24,
-            //     fontWeight: FontWeight.bold,
-            //     color: Colors.green.shade700,
-            //   ),
-            // ),
-            const SizedBox(height: 20),
-            // _buildContactForm(),
           ],
         ),
       ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran_academy/models/quran_card_model.dart';
+import 'package:quran_academy/widgets/enroll_button.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
 class HoverFlipCard extends StatefulWidget {
   final QuranCardModel card;
@@ -20,7 +23,7 @@ class _HoverFlipCardState extends State<HoverFlipCard>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -72,35 +75,12 @@ class _HoverFlipCardState extends State<HoverFlipCard>
     );
   }
 
-  Widget _buildFrontCard(QuranCardModel card) {
-    return _buildCard(
-      title: card.title,
-      description: card.description,
-      icon: card.icon,
-      color: card.color,
-    );
-  }
-
   Widget _buildBackCard(QuranCardModel card) {
-    return _buildCard(
-      title: card.title,
-      description: "",
-      icon: card.icon,
-      color: card.color,
-    );
-  }
-
-  Widget _buildCard({
-    required String title,
-    required String description,
-    required IconData icon,
-    required Color color,
-  }) {
     return Container(
       width: 200,
-      height: 250,
+      height: 280,
       decoration: BoxDecoration(
-        color: color,
+        color: card.color,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
@@ -108,25 +88,65 @@ class _HoverFlipCardState extends State<HoverFlipCard>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 48, color: Colors.white),
-            SizedBox(height: 16),
+            Icon(card.icon, size: 48, color: Colors.white),
+            const SizedBox(height: 16),
             Text(
-              title,
-              style: TextStyle(
+              card.title,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFrontCard(QuranCardModel card) {
+    return Container(
+      width: 200,
+      height: 280,
+      decoration: BoxDecoration(
+        color: card.color,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(card.icon, size: 48, color: Colors.white),
+            const SizedBox(height: 16),
             Text(
-              description,
-              style: TextStyle(
+              card.title,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              card.description,
+              style: const TextStyle(
                 fontSize: 14,
                 color: Colors.white70,
               ),
               textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            EnrollButton(
+              onTap: () {
+                html.window.open("https://wa.me/923706269220", "newtab");
+                debugPrint('Enroll button clicked for ${card.title}');
+              },
+              tiTle: 'Enroll',
             ),
           ],
         ),

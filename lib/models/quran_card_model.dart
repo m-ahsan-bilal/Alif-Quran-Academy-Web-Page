@@ -19,14 +19,14 @@ class QuranCardModel {
           description:
               "Feeling tired after work? Too busy in the morning? No worries! Just tell us your desired timings.",
           icon: Icons.access_time,
-          color: Colors.green,
+          color: Colors.green.shade400,
         ),
         QuranCardModel(
           title: "Free Trial Classes",
           description:
               "Enjoy free trial classes for 3 days and explore our teaching methods.",
           icon: Icons.school,
-          color: Colors.purple,
+          color: Colors.green.shade700,
         ),
         QuranCardModel(
           title: "Any Device, Anywhere",
@@ -39,7 +39,7 @@ class QuranCardModel {
           title: "Individual Sessions",
           description: "We give every individual special attention.",
           icon: Icons.person,
-          color: Colors.orange,
+          color: Colors.pink.shade400,
         ),
       ];
 }
