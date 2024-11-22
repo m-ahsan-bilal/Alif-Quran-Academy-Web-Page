@@ -7,7 +7,7 @@ import 'dart:html' as html;
 class HoverFlipCard extends StatefulWidget {
   final QuranCardModel card;
 
-  const HoverFlipCard({Key? key, required this.card}) : super(key: key);
+  const HoverFlipCard({super.key, required this.card});
 
   @override
   State<HoverFlipCard> createState() => _HoverFlipCardState();
@@ -17,6 +17,7 @@ class _HoverFlipCardState extends State<HoverFlipCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+  // ignore: unused_field
   bool _hovering = false;
 
   @override
@@ -138,7 +139,7 @@ class _HoverFlipCardState extends State<HoverFlipCard>
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             EnrollButton(

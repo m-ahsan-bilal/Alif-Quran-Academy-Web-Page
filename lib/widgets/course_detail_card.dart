@@ -8,6 +8,7 @@ class CourseTile extends StatefulWidget {
   const CourseTile({super.key, required this.course});
 
   @override
+  // ignore: library_private_types_in_public_api
   _CourseTileState createState() => _CourseTileState();
 }
 
