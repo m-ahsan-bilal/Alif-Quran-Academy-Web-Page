@@ -2,9 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_academy/models/courses_model.dart';
+import 'package:quran_academy/models/quran_card_model.dart';
 import 'package:quran_academy/models/rating_model.dart';
 import 'package:quran_academy/sections/contact_section.dart';
 import 'package:quran_academy/sections/hero_section.dart';
+import 'package:quran_academy/widgets/ad_card.dart';
 import 'package:quran_academy/widgets/course_detail_card.dart';
 import 'package:quran_academy/widgets/footer.dart';
 import 'package:quran_academy/widgets/header.dart';
@@ -19,6 +21,7 @@ class LandingPage extends StatefulWidget {
 
 late List<RatingModel> rating;
 final List<CoursesModel> courses = CoursesModel.courses;
+final List<QuranCardModel> cards = QuranCardModel.cards;
 
 class _LandingPageState extends State<LandingPage> {
   final CarouselSliderController _carouselController =
@@ -36,8 +39,23 @@ class _LandingPageState extends State<LandingPage> {
               title: 'Alif Quran Academy',
             ),
             const HeroSection(),
+            Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                Center(
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 16.0,
+                    runSpacing: 16.0,
+                    children:
+                        cards.map((card) => HoverFlipCard(card: card)).toList(),
+                  ),
+                ),
+              ],
+            ),
             const AboutSection(),
-            // const SizedBox(height: 700, width: 1000, child: CourseSection()),
             _buildCourseList(),
             const ContactSection(),
             _buildCustomerReviews(),
@@ -79,11 +97,6 @@ class _LandingPageState extends State<LandingPage> {
                 color: Colors.green.shade700,
                 fontWeight: FontWeight.bold,
               ),
-              // style: TextStyle(
-              //   fontSize: 24,
-              //   fontWeight: FontWeight.bold,
-              //   color: Colors.black87,
-              // ),
             ),
             const SizedBox(height: 20),
             CarouselSlider.builder(
@@ -95,7 +108,7 @@ class _LandingPageState extends State<LandingPage> {
                 );
               },
               options: CarouselOptions(
-                height: 140,
+                height: 160,
                 viewportFraction: 0.4,
                 enlargeCenterPage: true,
                 onPageChanged: (index, reason) {
