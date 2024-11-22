@@ -16,7 +16,8 @@ class CourseTile extends StatelessWidget {
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Image.asset(
-          course.imageUrl ?? 'assets/images/placeholder.jpg',
+          // course.imageUrl ??
+          'assets/images/quran3.jpg',
           width: isMobile ? 60 : 80,
           height: isMobile ? 60 : 80,
           fit: BoxFit.cover,
@@ -41,17 +42,17 @@ class CourseTile extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               _buildDetailIconText(Icons.schedule, course.duration),
+              const SizedBox(
+                width: 5,
+              ),
               _buildDetailIconText(Icons.star, "${course.rating}"),
             ],
           ),
         ],
       ),
-      onTap: () {
-        // Add navigation or functionality here if needed
-      },
     );
   }
 

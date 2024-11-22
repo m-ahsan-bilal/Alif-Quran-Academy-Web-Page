@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_academy/models/courses_model.dart';
 import 'package:quran_academy/models/rating_model.dart';
 import 'package:quran_academy/sections/contact_section.dart';
-import 'package:quran_academy/sections/course_section.dart';
 import 'package:quran_academy/sections/hero_section.dart';
 import 'package:quran_academy/widgets/course_detail_card.dart';
 import 'package:quran_academy/widgets/footer.dart';
@@ -27,7 +26,6 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     return Material(
       child: SingleChildScrollView(
         child: Column(
@@ -37,11 +35,11 @@ class _LandingPageState extends State<LandingPage> {
             const WebHeader(
               title: 'Alif Quran Academy',
             ),
-            HeroSection(),
+            const HeroSection(),
             const AboutSection(),
             // const SizedBox(height: 700, width: 1000, child: CourseSection()),
             _buildCourseList(),
-            const Center(child: ContactSection()),
+            const ContactSection(),
             _buildCustomerReviews(),
             const WebFooter(),
           ],
@@ -52,7 +50,20 @@ class _LandingPageState extends State<LandingPage> {
 
   Widget _buildCourseList() {
     return Column(
-      children: courses.map((course) => CourseTile(course: course)).toList(),
+      children: [
+        Text(
+          "Available Courses",
+          style: GoogleFonts.amiri(
+            fontSize: 32,
+            color: Colors.green.shade700,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Column(
+          children:
+              courses.map((course) => CourseTile(course: course)).toList(),
+        ),
+      ],
     );
   }
 
@@ -61,13 +72,18 @@ class _LandingPageState extends State<LandingPage> {
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           children: [
-            const Text(
-              "Reviews",
-              style: TextStyle(
-                fontSize: 24,
+            Text(
+              "Testimonials",
+              style: GoogleFonts.amiri(
+                fontSize: 32,
+                color: Colors.green.shade700,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
               ),
+              // style: TextStyle(
+              //   fontSize: 24,
+              //   fontWeight: FontWeight.bold,
+              //   color: Colors.black87,
+              // ),
             ),
             const SizedBox(height: 20),
             CarouselSlider.builder(
